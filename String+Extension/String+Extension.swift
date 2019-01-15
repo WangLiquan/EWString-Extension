@@ -93,6 +93,19 @@ extension String {
         }
         return tempStr
     }
+    /// 字符串修改部分为密文
+    ///
+    /// - Parameters:
+    ///   - start: 开始位置
+    ///   - end: 结束为止
+    /// - Returns: 修改后的字符串
+    func stringAddSecret(start: Int, end: Int) -> String{
+        if !(end < count) || start > end { return "取值范围错误" }
+        let startIndex = self.index(self.startIndex, offsetBy: start)
+        let endIndex = self.index(self.startIndex, offsetBy: end)
+        let string = self.replacingCharacters(in: startIndex...endIndex, with: "****")
+        return string
+    }
     /// 字符URL格式化,中文路径encoding
     ///
     /// - Returns: 格式化的 url
