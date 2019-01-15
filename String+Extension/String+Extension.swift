@@ -106,6 +106,7 @@ extension String {
         let string = self.replacingCharacters(in: startIndex...endIndex, with: "****")
         return string
     }
+    
     /// 字符URL格式化,中文路径encoding
     ///
     /// - Returns: 格式化的 url
