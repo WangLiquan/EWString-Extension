@@ -19,7 +19,7 @@ extension String {
         let sInde = index(startIndex, offsetBy: end)
         return String(self[..<sInde])
     }
-    /// 截取人任意位置到结束
+    /// 截取任意位置到结束
     ///
     /// - Parameter end:
     /// - Returns: 截取后的字符串
@@ -44,7 +44,7 @@ extension String {
     ///   - locat: 插入的位置
     /// - Returns: 添加后的字符串
     public func stringInsert(content: String,locat: Int) -> String {
-        if !(locat < count) { return "截取超出范围" }
+        if !(locat < count) { return "操作超出范围" }
         let str1 = stringCut(end: locat)
         let str2 = stringCutToEnd(star: locat)
         return str1 + content + str2
