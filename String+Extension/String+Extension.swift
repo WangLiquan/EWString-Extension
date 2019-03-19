@@ -1,4 +1,3 @@
-
 //
 //  String+Extension.swift
 //  iTour
@@ -14,7 +13,7 @@ extension String {
     ///
     /// - Parameter end: 结束的位值
     /// - Returns: 截取后的字符串
-    public func stringCut(end: Int) -> String{
+    public func stringCut(end: Int) -> String {
         if !(end <= count) { return self }
         let sInde = index(startIndex, offsetBy: end)
         return String(self[..<sInde])
@@ -62,7 +61,11 @@ extension String {
         let rect = str.boundingRect(with: rectSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], context: nil)
         return CGSize(width: ceil(rect.width), height: ceil(rect.height))
     }
-    public func getStringSize(fontSize:CGFloat) -> CGSize{
+    /// 计算字符串尺寸
+    ///
+    /// - Parameter fontSize: 字体大小
+    /// - Returns: 尺寸
+    public func getStringSize(fontSize:CGFloat) -> CGSize {
         return self.getStringSize(rectSize: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat(MAXFLOAT)), fontSize: fontSize)
     }
     /// 输入字符串 输出数组
@@ -99,14 +102,14 @@ extension String {
     ///   - start: 开始位置
     ///   - end: 结束为止
     /// - Returns: 修改后的字符串
-    func stringAddSecret(start: Int, end: Int) -> String{
+    func stringAddSecret(start: Int, end: Int) -> String {
         if !(end < count) || start > end { return "取值范围错误" }
         let startIndex = self.index(self.startIndex, offsetBy: start)
         let endIndex = self.index(self.startIndex, offsetBy: end)
         let string = self.replacingCharacters(in: startIndex...endIndex, with: "****")
         return string
     }
-    
+
     /// 字符URL格式化,中文路径encoding
     ///
     /// - Returns: 格式化的 url
@@ -115,7 +118,7 @@ extension String {
         return url!
     }
     ///是否包含字符串
-    public func containsIgnoringCase(find: String) -> Bool{
+    public func containsIgnoringCase(find: String) -> Bool {
         return self.range(of: find, options: .caseInsensitive) != nil
     }
     ///去除String中空格
@@ -124,10 +127,10 @@ extension String {
     }
 }
 
-extension NSString{
+extension NSString {
     ///修改字符串中数字样式
     @objc
-    public func attributeNumber(_ fontsize :CGFloat,color:UIColor,hcolor:UIColor,B:Bool)-> NSMutableAttributedString{
+    public func attributeNumber(_ fontsize :CGFloat,color:UIColor,hcolor:UIColor,B:Bool) -> NSMutableAttributedString {
        return (self as String).attributeNumber(fontsize, color: color, hcolor: hcolor, B: B)
     }
 }
@@ -150,7 +153,7 @@ extension String {
     ///   - color: 非数字颜色
     ///   - lineSpace: 行间距
     /// - Returns: 修改完成的AttributedString
-    public func attributeNumber(BoldFontSize fontsize:CGFloat, color:UIColor,lineSpace:CGFloat?)->NSMutableAttributedString{
+    public func attributeNumber(BoldFontSize fontsize:CGFloat, color:UIColor,lineSpace:CGFloat?) -> NSMutableAttributedString {
         let AttributedStr = NSMutableAttributedString(string: self, attributes: [.font: UIFont.systemFont(ofSize: fontsize), .foregroundColor: color])
         for i in 0 ..< self.count {
             let char = self.utf8[self.index(self.startIndex, offsetBy: i)]
@@ -162,7 +165,7 @@ extension String {
         if let space = lineSpace {
             let paragraphStyleT = NSMutableParagraphStyle()
             paragraphStyleT.lineSpacing = space
-            AttributedStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyleT, range: NSMakeRange(0,self.count))
+            AttributedStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyleT, range: NSRange(location: 0, length: self.count))
         }
         return AttributedStr
     }
@@ -174,7 +177,7 @@ extension String {
     ///   - hcolor: 数字颜色
     ///   - B: 是否加粗变大
     /// - Returns: 修改完成字符串
-    public func attributeNumber(_ fontsize :CGFloat,color:UIColor,hcolor:UIColor,B:Bool)-> NSMutableAttributedString{
+    public func attributeNumber(_ fontsize :CGFloat,color:UIColor,hcolor:UIColor,B:Bool) -> NSMutableAttributedString {
         let AttributedStr = NSMutableAttributedString(string: self, attributes: [.font: UIFont.systemFont(ofSize: fontsize), .foregroundColor: color])
         for i in 0 ..< self.count {
             let char = self.utf8[self.index(self.startIndex, offsetBy: i)]
@@ -188,8 +191,9 @@ extension String {
         return AttributedStr
     }
 }
-
+// swiftlint:disable missing_docs
 extension String {
+    /// 字符串长度
     public var length: Int {
         ///更改成其他的影响含有emoji协议的签名
         return self.utf16.count
@@ -213,12 +217,14 @@ extension String {
         return (self as NSString).boolValue
     }
 }
+
+/// String转换成URL
 public protocol URLConvertibleProtocol {
     var URLValue: URL? { get }
     var URLStringValue: String { get }
 }
 extension String: URLConvertibleProtocol {
-    ///String转换成URL
+    /// String转换成URL
     public var URLValue: URL? {
         if let URL = URL(string: self) {
             return URL
@@ -235,34 +241,34 @@ extension String: URLConvertibleProtocol {
     }
 }
 
-extension String{
+extension String {
     /**
      将当前字符串拼接到cache目录后面
      */
-    public func cacheDir() -> String{
+    public func cacheDir() -> String {
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
         return (path as NSString).appendingPathComponent((self as NSString).lastPathComponent)
     }
     /**
      将当前字符串拼接到doc目录后面
      */
-    public func docDir() -> String{
+    public func docDir() -> String {
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
         return (path as NSString).appendingPathComponent((self as NSString).lastPathComponent)
     }
     /**
      将当前字符串拼接到tmp目录后面
      */
-    public func tmpDir() -> String{
+    public func tmpDir() -> String {
         let path = NSTemporaryDirectory() as NSString
         return path.appendingPathComponent((self as NSString).lastPathComponent)
     }
 }
 
-extension String{
+extension String {
     ///判断String是否存在汉字
     public func isIncludeChineseIn() -> Bool {
-        for (_, value) in self.enumerated() {
+        for value in self {
             if ("\u{4E00}" <= value  && value <= "\u{9FA5}") {
                 return true
             }
@@ -270,4 +276,3 @@ extension String{
         return false
     }
 }
-

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
-    let label2:UILabel =  {
+    let label2:UILabel = {
         let label = UILabel(frame: CGRect(x: 100, y: 400, width: UIScreen.main.bounds.width - 200, height: 150))
         label.backgroundColor = UIColor.gray
         label.numberOfLines = 0
@@ -28,12 +28,12 @@ class ViewController: UIViewController {
         drawMyView()
         changeString()
     }
-    func drawMyView(){
+    func drawMyView() {
         self.view.addSubview(label1)
         self.view.addSubview(label2)
     }
-    func changeString(){
-        
+    func changeString() {
+
         testString = testString.stringByRemovingControlCharacters()
         print("testString,去除字符串中的Cc/Cf字符: \(testString)\r")
 
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
 
         let bool2 = testString.isIncludeChineseIn()
         print("Bool2,判断字符串中是否含有汉字: \(bool2)\r")
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,6 +95,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
