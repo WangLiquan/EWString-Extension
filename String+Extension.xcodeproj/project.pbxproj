@@ -198,16 +198,16 @@
 				TargetAttributes = {
 					79C625AC2148F020005F140E = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					79C625C02148F023005F140E = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 79C625AC2148F020005F140E;
 					};
 					79C625CB2148F023005F140E = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 79C625AC2148F020005F140E;
 					};
 				};
@@ -469,7 +469,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ethan.String-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -487,7 +487,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ethan.String-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -507,7 +507,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ethan.String-ExtensionTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/String+Extension.app/String+Extension";
 			};
@@ -528,7 +528,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ethan.String-ExtensionTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/String+Extension.app/String+Extension";
 			};
@@ -548,7 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ethan.String-ExtensionUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "String+Extension";
 			};
@@ -568,7 +568,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ethan.String-ExtensionUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "String+Extension";
 			};
