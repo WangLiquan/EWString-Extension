@@ -276,3 +276,15 @@ extension String {
         return false
     }
 }
+
+extension String {
+    ///根据字符串获取字典
+    public func stringValueDic() -> [String : Any]?{
+        let data = self.data(using: String.Encoding.utf8)
+        if let dict = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : Any] {
+            return dict
+        }
+        return nil
+    }
+}
+
